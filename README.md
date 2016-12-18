@@ -1,6 +1,6 @@
 express-api-es6
 ===============
-[![Build Status](https://travis-ci.org/brunoosilva/express-api-es6.svg?branch=master)
+[Build Status](https://api.travis-ci.org/brunoosilva/express-api-es6.svg?branch=master)
 
 Complete boilerplate structure of api Express written in ES6 (EcmaScript 2015), based on features and using best practices and design patterns for Javascript. Feel free to use, share and logically contribute.
 
