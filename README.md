@@ -1,7 +1,8 @@
 express-api-es6
 ===============
 
-# Dependencies
+Dependencies
+------------
 
 [NodeJS and NPM](https://nodejs.org/en/download/)
 [PM2](http://pm2.keymetrics.io/)
