@@ -1,3 +1,5 @@
+.DS_STORE
+
 # Logs
 logs
 *.log
@@ -35,3 +37,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Custom project
+build
+coverage
