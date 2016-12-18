@@ -6,13 +6,17 @@
   "scripts": {
     "start": "gulp build && node build/index.js",
     "test": "gulp test",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:integration": "node testIntegration.js"
   },
   "keywords": [],
   "author": "Bruno Oliveira",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunoosilva/express-api-es6"
+  },
   "peerDependencies": {
-      "gulp": "^3.9.1",
-      "pm2": "^1.1.3"
+      "gulp": "^3.9.1"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

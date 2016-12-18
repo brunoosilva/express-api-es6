@@ -41,7 +41,7 @@ gulp.task('test', ['pre-test'], () => {
       }))
        .pipe($.babelIstanbul.writeReports({
           dir: './coverage',
-          reporters: [ 'html' ]
+          reporters: [ 'html', 'lcov' ]
        }))
        .pipe($.babelIstanbul.enforceThresholds({ thresholds: { global: 70 } }))
        .on('end', () => process.exit(0));
