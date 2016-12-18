@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "start": "gulp build && node build/index.js",
-    "test": "gulp test && npm run test:integration",
+    "test": "gulp test",
     "test:integration": "node testIntegration.js"
   },
   "keywords": [],

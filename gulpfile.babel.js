@@ -21,9 +21,6 @@ const srcCoverage = [
 const srcSpec = [
     './src/**/*-spec.js'
 ];
-const srcSpecIntegration = [
-    './src/**/*-spec-integration.js'
-];
 
 gulp.task('pre-test', function () {
    return gulp.src(srcCoverage)
@@ -33,7 +30,6 @@ gulp.task('pre-test', function () {
 
 gulp.task('test', ['pre-test'], () => {
    return gulp.src(srcSpec)
-       .pipe($.plumber())
        .pipe($.jasmine({
           reporter: new jasmineReporter({
              colors: 1,
@@ -47,21 +43,8 @@ gulp.task('test', ['pre-test'], () => {
           dir: './coverage',
           reporters: [ 'html' ]
        }))
-       .pipe($.babelIstanbul.enforceThresholds({ thresholds: { global: 70 } }));
-});
-
-gulp.task('test:integration', () => {
-    return gulp.src(srcSpecIntegration)
-        //.pipe($.plumber())
-        .pipe($.jasmine({
-            reporter: new jasmineReporter({
-                colors: 1,
-                cleanStack: 1,
-                verbosity: 4,
-                listStyle: 'indent',
-                activity: false
-            })
-        }));
+       .pipe($.babelIstanbul.enforceThresholds({ thresholds: { global: 70 } }))
+       .on('end', () => process.exit(0));
 });
 
 gulp.task('lint', () => {
