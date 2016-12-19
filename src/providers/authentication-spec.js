@@ -25,7 +25,7 @@ describe('Provider: Authentication', () => {
             name: 'Teste',
             email: 'teste@teste.com',
             photo: 'teste',
-            type: 'admin'
+            type: 'student'
         };
 
         token = TestUtils.createToken(user);

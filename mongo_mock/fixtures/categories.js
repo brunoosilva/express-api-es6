@@ -14,5 +14,12 @@ exports.categories = [
         url: 'vendas',
         order: 2,
         parent: null
+    },
+    {
+        _id: id('200000000000000000000003'),
+        name: 'Caixa',
+        url: 'caixa',
+        order: 0,
+        parent: '200000000000000000000001'
     }
 ];

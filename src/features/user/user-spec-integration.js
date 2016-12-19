@@ -38,6 +38,22 @@ describe('User', () => {
                 "googlePlusUrl" : "https://plus.google.com/",
                 "linkedInUrl" : "https://www.linkedin.com/in/",
                 "createdAt": "2016-11-29T16:36:57.043Z"
+            },
+            {
+                "_id" : "100000000000000000000002",
+                "name" : "Editor",
+                "email" : "editor@teste.com.br",
+                "photo" : "https://s3.amazonaws.com/",
+                "type" : "editor",
+                "status" : "enable",
+                "office": "Editor",
+                "signature": "https://s3.amazonaws.com/",
+                "description": "Editor",
+                "facebookUrl" : "https://www.facebook.com/",
+                "twitterUrl" : "https://www.twitter.com/",
+                "googlePlusUrl" : "https://plus.google.com/",
+                "linkedInUrl" : "https://www.linkedin.com/in/",
+                "createdAt": "2016-11-29T16:36:57.043Z"
             }
         ];
     });
@@ -211,19 +227,7 @@ describe('User', () => {
         });
     });
 
-    xdescribe('DELETE /users/:id', () => {
-        it('evitar de apagar usuário com curso vinculado', (done) => {
-            const userId = '100000000000000000000000';
-
-            request.delete(`/${userId}`)
-                .set('Authorization', TestUtils.tokens.admin)
-                .expect(409, {
-                    status: 409,
-                    message: 'Existe registro vinculado, desvincule primeiro',
-                    fields: null
-                })
-                .end(TestUtils.endTest.bind(null, done));
-        });
+    describe('DELETE /users/:id', () => {
 
         it('excluir um usuário não existente', (done) => {
             const userId = '100000000000000000000020';
@@ -239,7 +243,7 @@ describe('User', () => {
                 .end(TestUtils.endTest.bind(null, done));
         });
 
-        it('excluir usuário sem vínculo', (done) => {
+        it('excluir usuário', (done) => {
             const userId = '100000000000000000000001';
 
             request.delete(`/${userId}`)
@@ -275,9 +279,9 @@ describe('User', () => {
         it('Logar com dados do google', (done) => {
             request.post(`/loginGoogle`)
                 .send({
-                    email: 'teste@teste.com.br',
-                    name: 'Teste',
-                    photo: 'https://lh3.googleusercontent.com/'
+                    email: 'editor@teste.com.br',
+                    name: 'Editor',
+                    photo: 'https://s3.amazonaws.com/'
                 })
                 .expect(200)
                 .expect((res) => {
@@ -287,11 +291,11 @@ describe('User', () => {
                     res.body.token = null
                 })
                 .expect({
-                    "id": "100000000000000000000001",
-                    "name": "Teste",
-                    "email": "teste@teste.com.br",
-                    "photo": "https://lh3.googleusercontent.com/",
-                    "type": "teacher",
+                    "id": "100000000000000000000002",
+                    "name": "Editor",
+                    "email": "editor@teste.com.br",
+                    "photo": "https://s3.amazonaws.com/",
+                    "type": "editor",
                     "token": null
                 })
                 .end(TestUtils.endTest.bind(null, done));
@@ -300,9 +304,9 @@ describe('User', () => {
         it('Tenta logar novamente com os mesmos dados', (done) => {
             request.post(`/loginGoogle`)
                 .send({
-                    email: 'teste@teste.com.br',
-                    name: 'Teste',
-                    photo: 'https://lh3.googleusercontent.com/'
+                    email: 'editor@teste.com.br',
+                    name: 'Editor',
+                    photo: 'https://s3.amazonaws.com/'
                 })
                 .expect(400, {
                     "status": 400,
@@ -315,11 +319,11 @@ describe('User', () => {
                                 "type": "unique",
                                 "message": "Você já está logado",
                                 "path": "email",
-                                "value": "teste@teste.com.br"
+                                "value": "editor@teste.com.br"
                             },
                             "kind": "unique",
                             "path": "email",
-                            "value": "teste@teste.com.br"
+                            "value": "editor@teste.com.br"
                         }
                     }
                 })

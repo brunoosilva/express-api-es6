@@ -5,9 +5,10 @@
   "main": "build/index.js",
   "scripts": {
     "start": "gulp build && node build/index.js",
-    "test": "gulp test",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test:integration": "node testIntegration.js"
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "gulp test",
+    "test:integration": "gulp build && node testIntegration.js",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [],
   "author": "Bruno Oliveira",

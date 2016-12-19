@@ -54,10 +54,9 @@ export class Authentication{
             return Http.error(response, 'Precisa está logado', 401);
         }
 
-        const userPermissions = request.user.hasOwnProperty('permissions')
-            ? request.user.permissions : [];
+        const userType = request.user.type;
 
-        if(!this._checkPermissions(userPermissions, permissions)){
+        if(!this._checkPermissions(userType, permissions)){
             return Http.error(response, 'Acesso negado', 403);
         }
 
@@ -65,9 +64,9 @@ export class Authentication{
     }
     /* jshint ignore:end */
 
-    _checkPermissions(userPermissions, needPermissions){
+    _checkPermissions(userType, needPermissions){
 
-        if(!userPermissions && needPermissions){
+        if(!userType && needPermissions){
             return false;
         }
 
@@ -75,9 +74,7 @@ export class Authentication{
             return true;
         }
 
-        return userPermissions
-                .filter(permission => needPermissions.indexOf(permission) > -1)
-                .length > 0;
+        return needPermissions.indexOf(userType) > -1;
     }
 
     /* jshint ignore:start */

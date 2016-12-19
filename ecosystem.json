@@ -5,12 +5,20 @@
       "script": "build/index.js",
       "ignore_watch": ["node_modules", "build"],
       "env": {
-        "watch": true,
+        "watch": false,
         "PORT": 9000,
         "MONGODB_A": "localhost",
         "MONGODB_B": "localhost",
         "MONGODB_PORT": "27017",
         "NODE_ENV": "dev"
+    },
+    "env_test": {
+        "watch": false,
+        "PORT": 9000,
+        "MONGODB_A": "localhost",
+        "MONGODB_B": "localhost",
+        "MONGODB_PORT": "8000",
+        "NODE_ENV": "test"
       }
     }
   ]
