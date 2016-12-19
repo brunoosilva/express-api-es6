@@ -76,7 +76,6 @@ gulp.task('lint', () => {
 
 gulp.task('compile', () => {
    return gulp.src(src)
-       .pipe($.plumber())
        .pipe($.babel({ presets: ['es2015'] }))
        .pipe(gulp.dest('build'));
 });

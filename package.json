@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "start": "gulp build && node build/index.js",
-    "test": "npm run test:unit && npm run test:integration",
+    "test": "npm run test:unit",
     "test:unit": "gulp test",
     "test:integration": "gulp build && node testIntegration.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
@@ -46,7 +46,6 @@
     "gulp-jasmine": "^2.4.2",
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.4.0",
-    "gulp-plumber": "^1.1.0",
     "jasmine-console-reporter": "^1.2.7",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
