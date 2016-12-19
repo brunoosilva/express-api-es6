@@ -17,7 +17,8 @@
     "url": "https://github.com/brunoosilva/express-api-es6"
   },
   "peerDependencies": {
-      "gulp": "^3.9.1"
+      "gulp": "^3.9.1",
+      "pm2": "^2.2.2"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
