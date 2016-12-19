@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - 7.2
+before_install:
+  - npm install pm2 -g
 services:
   - mongodb
-  - pm2
 after_success:
   - npm run coveralls
